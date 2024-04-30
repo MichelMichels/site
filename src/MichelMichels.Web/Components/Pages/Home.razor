@@ -6,8 +6,24 @@
     <div class="vstack text-center gap-3">
         <img src="img/me.png" width="200" class="p-4 m-auto" />
 
-        <p class="fs-1 fw-light">Hi, I'm <span class="fw-normal">Michel Michels</span>.</p>
+        <p class="fs-1 fw-light">Hi, I'm <span class="fw-normal">
+                @foreach(char c in Name)
+                {
+                    <span class="name-char @(GetRandomColorClass())">@c</span>        
+                }            
+            </span>.</p>
 
         <a href="projects" class="btn btn-outline-primary m-auto">See projects</a>       
     </div>
 </div>
+
+@code {
+    private Random random = new();
+
+    public string Name { get; set; } = "Michel Michels";
+
+    private string GetRandomColorClass()
+    {
+        return $"c-4-{random.Next(16)}";
+    }
+}
