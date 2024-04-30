@@ -3,17 +3,21 @@
 <PageTitle>Home | michel.miche.ls</PageTitle>
 
 <div class="container">
-    <div class="vstack text-center gap-3">
-        <img src="img/me.png" width="200" class="p-4 m-auto" />
+    <div class="d-flex flex-column flex-md-row gap-3 justify-content-center align-items-center">
+        <img src="img/me.webp" width="200" class="p-4" alt="Profile picture" />
 
-        <p class="fs-1 fw-light">Hi, I'm <span class="fw-normal">
-                @foreach(char c in Name)
-                {
-                    <span class="name-char @(GetRandomColorClass())">@c</span>        
-                }            
-            </span>.</p>
+        <div class="text-center text-md-start align-self-center">
+            <p class="fs-1 fw-light">
+                Hi, I'm <span class="fw-normal">
+                    @foreach (char c in Name)
+                    {
+                        <span class="name-char fw-bold @(GetRandomColorClass())">@c</span>
+                    }
+                </span>.
+            </p>
 
-        <a href="projects" class="btn btn-outline-primary m-auto">See projects</a>       
+            <a href="projects" class="btn btn-outline-primary m-auto">See projects</a>
+        </div>              
     </div>
 </div>
 

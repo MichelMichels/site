@@ -27,7 +27,12 @@ a {
 }
 
 .name-char {
-    transition: color 300ms;
+    transition: 0.25s all;
+    transition-delay: 2s;
+}
+
+.name-char:hover {
+    transition-delay: 0s;
 }
 
 /* 4-bit colors */
