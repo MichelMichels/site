@@ -4,7 +4,7 @@
 
 <PageTitle>Home | @(Constants.DomainName)</PageTitle>
 
-<div class="container">
+<div class="container vstack gap-4">
     <div class="d-flex flex-column flex-md-row gap-3 justify-content-center align-items-center">
         <img src="img/me.webp" width="200" class="p-4" alt="Profile picture" />
 
@@ -22,9 +22,9 @@
         </div>              
     </div>
 
-    <h3>Biography</h3>
+    <div>
+        <h3>Biography</h3>
 
-    <div class="my-4">
         <figure>
             <blockquote class="blockquote">
                 <p>
@@ -49,9 +49,11 @@
             <figcaption class="blockquote-footer">
                 Microsoft Copilot
             </figcaption>
-        </figure>    
+        </figure>
     </div>
+
 </div>
+
 
 @code {
     private Random random = new();
