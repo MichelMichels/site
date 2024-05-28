@@ -1,10 +1,16 @@
+using MichelMichels.BpostSharp.Excel;
+using MichelMichels.BpostSharp.Services;
 using MichelMichels.ViesSharp;
 using MichelMichels.Web.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services
-    .AddSingleton<IViesSharpClient, ViesSharpClient>();
+    .AddSingleton<IViesSharpClient, ViesSharpClient>()
+    .AddSingleton(services =>
+    {
+        return new BelgianCityDataService(new ExcelCacheBuilder("wwwroot/data/bpost.xls"));
+    });
 
 // Add services to the container.
 builder.Services

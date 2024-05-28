@@ -1,0 +1,54 @@
+﻿@page "/projects/bpost"
+
+@rendermode InteractiveServer
+
+<PageTitle>BpostSharp | @(Constants.DomainName)</PageTitle>
+
+<div class="container p-4 ">
+    <div class="vstack gap-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/projects">Projects</a></li>
+                <li class="breadcrumb-item active" aria-current="page">BpostSharp</li>
+            </ol>
+        </nav>
+
+        <div class="d-flex align-items-center gap-3">
+            <h2 class="display-2">BpostSharp</h2>
+
+            <a href="http://git.miche.ls/BpostSharp" target="_blank" class="btn btn-outline-primary" role="button">
+                <div class="hstack gap-2">
+                    <i class="bi-github" />
+                    <span class="d-none d-sm-block">Repository</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- Search -->
+        <div class="d-flex mb-3">
+            <form class="flex-fill align-self-center">
+                <div class="d-flex flex-column flex-md-row gap-2">       
+                    <div class="form-floating flex-grow-1">      
+                        <input type="text" class="form-control" id="postalcode-input" placeholder="Postal code placeholder" required @bind="@PostalCodeInput" @bind:event="oninput" @bind:after="Search">
+                        <label for="postalcode-input">Postal code</label>
+                    </div>                   
+                </div>
+            </form>
+        </div>
+
+        <!-- Result -->
+        <div>
+            <h3>Results</h3>
+
+            <ul>
+                @foreach(var city in SearchResults)
+                {
+                    <li>
+                        <p>@city.Name</p>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

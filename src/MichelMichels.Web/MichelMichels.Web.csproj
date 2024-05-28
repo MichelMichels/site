@@ -9,8 +9,12 @@
     <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="MichelMichels.BpostSharp.Excel" Version="1.0.2" />
     <PackageReference Include="MichelMichels.DobissSharp.Api" Version="1.0.0" />
     <PackageReference Include="MichelMichels.ViesSharp" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\data\" />
   </ItemGroup>
 
 </Project>
