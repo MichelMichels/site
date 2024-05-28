@@ -1,4 +1,6 @@
-﻿@page "/projects/bpost"
+﻿@page "/projects/bpost/{postalCodeInput?}"
+
+@using System.Globalization
 
 @rendermode InteractiveServer
 
@@ -15,7 +17,7 @@
         </nav>
 
         <div class="d-flex align-items-center gap-3">
-            <h2 class="display-2">BpostSharp</h2>
+            <h2 class="display-3">BpostSharp 📯</h2>
 
             <a href="http://git.miche.ls/BpostSharp" target="_blank" class="btn btn-outline-primary" role="button">
                 <div class="hstack gap-2">
@@ -24,6 +26,31 @@
                 </div>
             </a>
         </div>
+
+        <h3>Intro</h3>
+
+        <p>
+            This page contains a demo for the <a href="@nugetUrl" target="_blank"><code>MichelMichels.BpostSharp</code></a> 
+            C# library written by Michel Michels. The goal of the demo page is to provide a quick way to query Belgian city data 
+            by postal code through public data from Bpost (the Belgian national post office).
+        </p>
+
+        <h3>Usage</h3>
+
+        <p class="m-0">Fill in at least 2 numbers of a postal code to get results. The page will return following data:</p>
+        
+        <ul >
+            <li>🏡 Icon indicating if the city is a municipality</li>
+            <li>🔢 Postal code</li>
+            <li>🏙️ City name</li>
+            <li>📌 Province name</li>
+            <li>🏢 Main municipality (if applicable)</li>
+            <li>🔗 Link to Wikipedia</li>
+        </ul>
+
+        <hr />
+
+        <h3>Demo</h3>
 
         <!-- Search -->
         <div class="d-flex mb-3">
@@ -41,14 +68,74 @@
         <div>
             <h3>Results</h3>
 
-            <ul>
-                @foreach(var city in SearchResults)
+            <div class="row g-3">
+                @foreach (var city in SearchResults)
                 {
-                    <li>
-                        <p>@city.Name</p>
-                    </li>
+                    <div class="col-md-4">
+                        <div class="card w-100 h-100">
+                            <div class="card-body">
+                                <div class="card-img-top text-center p-1">
+                                    @if(city.IsMunicipality.HasValue)
+                                    {
+                                        if(city.IsMunicipality.Value)
+                                        {
+                                            <span style="font-size:5rem;">🏡</span>
+                                        } else
+                                        {
+                                            <span style="font-size:5rem;">🏢</span>
+                                        }
+                                    } else
+                                    {
+                                        <span style="font-size:5rem;">📬</span>
+                                    }
+                                </div>
+                                <h5 class="card-title">@city.PostalCode</h5>
+                                <h6 class="card-subtitle mb-2 text-body-secondary">@city.Name</h6>
+
+                                <p class="card-text">
+                                    <div class="vstack">
+                                    @if(!string.IsNullOrEmpty(city.Province))
+                                    {
+                                        <span>📌 @textInfo.ToTitleCase(city.Province.ToLower())</span>
+                                    }
+
+                                    @if(!string.IsNullOrEmpty(city.MainMunicipality) && !city.MainMunicipality.Equals(city.Name, StringComparison.OrdinalIgnoreCase))
+                                    {
+                                        <span>🏢 @textInfo.ToTitleCase(city.MainMunicipality.ToLower())</span>
+                                    }
+                                    </div>
+                                </p>
+
+                                <a href="https://en.wikipedia.org/wiki/@city.Name" target="_blank" class="card-link">Wiki</a>
+                            </div>
+                        </div>                            
+                    </div>
                 }
-            </ul>
+
+                @if(SearchResults.Count == 0)
+                {
+                    @for(int i = 0; i <= 16; i++)
+                    {
+                        <div class="col-md-4">
+                            <div class="card" aria-hidden="true">          
+                                <div class="card-body">
+                                    <h5 class="card-title placeholder-glow">
+                                        <span class="placeholder col-6"></span>
+                                    </h5>
+                                    <p class="card-text placeholder-glow">
+                                        <span class="placeholder col-7"></span>
+                                        <span class="placeholder col-4"></span>
+                                        <span class="placeholder col-4"></span>
+                                        <span class="placeholder col-6"></span>
+                                        <span class="placeholder col-8"></span>
+                                    </p>
+                                    <a class="card-link disabled placeholder col-6" aria-disabled="true"></a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
         </div>
     </div>
 </div>

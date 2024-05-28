@@ -22,7 +22,7 @@
         </nav>
 
         <div class="d-flex align-items-center gap-3">
-            <h2 class="display-2">ViesSharp</h2>
+            <h2 class="display-3">ViesSharp 🛂</h2>
 
             <a href="https://git.miche.ls/ViesSharp" target="_blank" class="btn btn-outline-primary" role="button">
                 <div class="hstack gap-2">
@@ -32,10 +32,30 @@
             </a>
         </div>
 
+        <h3>Introduction</h3>
+
+        <p>
+            This page contains a demo of the <a href="@nugetUrl"><code>MichelMichels.ViesSharp</code></a> C# library written by Michel
+            Michels. It utilizes the REST API that the European Commission has made freely available. Before using this 
+            demo or the library, make sure to read 
+            <a href="https://ec.europa.eu/taxation_customs/vies/#/disclaimer" target="_blank">the disclaimer over at their site</a>. 
+        </p>
+
+        <p>
+            None of the input on this site is saved. If you want to be sure, you can check out the code of my website over 
+            at <a href="http://git.miche.ls/site" target="_blank">git.miche.ls/site</a>.
+        </p>
+
+        <h3>Usage</h3>
+
+        <p>Pick a country code from the dropdown list below and fill in a VAT number. The number needs no particular formatting.</p>
+
+        <hr />
+
         <!-- Search -->
         <div class="d-flex">
             <form @onsubmit="Lookup" class="flex-fill align-self-center">
-                <h3 class="mb-3">Search</h3>
+                <h3 class="mb-3">Demo</h3>
 
                 <div class="d-flex flex-column flex-md-row gap-2">
                     <div class="form-floating" style="width: 7rem;">

@@ -16,7 +16,7 @@ public partial class Projects : ComponentBase
             Emoji = "📯",
             Title = "BpostSharp",
             Description = "C# service to obtain city data provided by the Belgian postal service.",
-            Link = "http://git.miche.ls/BpostSharp"
+            Link = "/projects/bpost"
         }
     ];
 }

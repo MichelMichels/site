@@ -11,6 +11,9 @@ public partial class Vies : ComponentBase
     [Inject]
     protected IViesSharpClient ViesSharpClient { get; set; } = default!;
 
+    private const string nugetUrl = "https://www.nuget.org/packages/MichelMichels.ViesSharp/";
+
+
     private readonly JsonSerializerOptions defaultSerializerOptions = new()
     {
         WriteIndented = true,
