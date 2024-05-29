@@ -57,7 +57,7 @@
             <form class="flex-fill align-self-center">
                 <div class="d-flex flex-column flex-md-row gap-2">       
                     <div class="form-floating flex-grow-1">      
-                        <input type="text" class="form-control" id="postalcode-input" placeholder="Postal code placeholder" @bind="PostalCodeInput" @bind:event="oninput" @bind:after="Search">
+                        <input type="text" pattern="\d*" inputmode="numeric" class="form-control" id="postalcode-input" placeholder="Postal code placeholder" @bind="PostalCodeInput" @bind:event="oninput" @bind:after="Search">
                         <label for="postalcode-input">Postal code</label>
                     </div>                   
                 </div>
