@@ -94,3 +94,9 @@ a {
 .c-4-15:hover {
     color: rgb(85, 85, 255);
 }
+
+.waves-top {
+    --mask: radial-gradient(30.87px at 50% 42.4px,#000 99%,#0000 101%) calc(50% - 32px) 0/64px 100%, radial-gradient(30.87px at 50% -26.4px,#0000 99%,#000 101%) 50% 16px/64px 100% repeat-x;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
+}
