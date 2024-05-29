@@ -9,7 +9,7 @@
 @using MichelMichels.Web
 @using System.Text.Json
 
-<PageTitle>ViesSharp | @(Constants.DomainName)</PageTitle>
+<PageTitle>@projectName | @Constants.DomainName</PageTitle>
 
 <div class="container p-4 ">
     <div class="vstack gap-3">
@@ -22,9 +22,9 @@
         </nav>
 
         <div class="d-flex align-items-center gap-3">
-            <h2 class="display-3">ViesSharp 🛂</h2>
+            <h2 class="display-3">@projectName 🛂</h2>
 
-            <a href="https://git.miche.ls/ViesSharp" target="_blank" class="btn btn-outline-primary" role="button">
+            <a href="@githubUrl" target="_blank" class="btn btn-outline-primary" role="button">
                 <div class="hstack gap-2">
                     <i class="bi-github" />
                     <span class="d-none d-sm-block">Repository</span>
@@ -35,7 +35,7 @@
         <h3>Introduction</h3>
 
         <p>
-            This page contains a demo of the <a href="@nugetUrl"><code>MichelMichels.ViesSharp</code></a> C# library written by Michel
+            This page contains a demo of the <a href="@nugetUrl"><code>MichelMichels.@projectName</code></a> C# library written by Michel
             Michels. It utilizes the REST API that the European Commission has made freely available. Before using this 
             demo or the library, make sure to read 
             <a href="https://ec.europa.eu/taxation_customs/vies/#/disclaimer" target="_blank">the disclaimer over at their site</a>. 
@@ -43,7 +43,7 @@
 
         <p>
             None of the input on this site is saved. If you want to be sure, you can check out the code of my website over 
-            at <a href="http://git.miche.ls/site" target="_blank">git.miche.ls/site</a>.
+            at <a href="@Constants.SiteGitHubUrl" target="_blank">git.miche.ls/site</a>.
         </p>
 
         <h3>Usage</h3>

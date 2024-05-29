@@ -12,7 +12,8 @@ public partial class Vies : ComponentBase
     protected IViesSharpClient ViesSharpClient { get; set; } = default!;
 
     private const string nugetUrl = "https://www.nuget.org/packages/MichelMichels.ViesSharp/";
-
+    private const string githubUrl = $"{Constants.GitHubProfileUrl}/ViesSharp";
+    private const string projectName = "ViesSharp";
 
     private readonly JsonSerializerOptions defaultSerializerOptions = new()
     {
